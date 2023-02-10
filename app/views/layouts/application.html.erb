@@ -80,7 +80,8 @@
     </header>
 
     <main>
-    <%= yield %>
+      <% flash[:notice] %>
+      <%= yield %>
     </main>
 
     <footer>
