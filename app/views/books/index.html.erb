@@ -1,17 +1,21 @@
-<% if @book.errors.any? %>
-  <% if @book.errors.count > 1 %>
-    <%= @book.errors.count %>errors prohibited this obj from being saved:
-  <% else %>
-    <%= @book.errors.count %>error prohibited this obj from being saved:
-  <% end %>
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <div class="container px-5 px-sm-0">
+  <% if @book.errors.any? %>
+    <h3>
+    <%= @book.errors.count %>
+    <% if @book.errors.count > 1 %>
+      errors
+    <% else %>
+      error
+    <% end %>
+    prohibited this obj from being saved:
+    </h3>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div class="row">
     <div class="col-md-3">
     <%= render "list", user: @user %>
